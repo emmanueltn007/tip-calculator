@@ -8,27 +8,37 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div>
+    <h1 class="splitter">
+      <span>SPLI</span>
+      <span>TTER</span>
+    </h1>
+  </div>
   <div class="card">
     <div class="calculation">
         <div class="bill-calculation">
           <label for="bill">Bill</label>
+          <p class="bill-alert js-bill-alert">Can't be empty</p>
           <img width="7px" class="icon" src="images/icon-dollar.svg" alt="dollar-icon">
           <input class="js-bill" type="number" name="bill-calc" id="bill" placeholder="0">
         </div>
         <div class="tip-selection">
           <p>Select Tip %</p>
+          <p class="tip-percentage-alert js-tip-percentage-alert">Select a tip percentage</p>
           <div class="percentage-buttons">
-            <button class="tip-percentage" data-tip="0.05">5%</button>
-            <button class="tip-percentage" data-tip="0.10">10%</button>
-            <button class="tip-percentage" data-tip="0.15">15%</button>
-            <button class="tip-percentage" data-tip="0.25">25%</button>
-            <button class="tip-percentage" data-tip="0.50">50%</button>
-            <button class="custom-tip-percentage">Custom</button>
+            <button class="tip-percentage tip-btn" data-tip="0.05">5%</button>
+            <button class="tip-percentage tip-btn" data-tip="0.10">10%</button>
+            <button class="tip-percentage tip-btn" data-tip="0.15">15%</button>
+            <button class="tip-percentage tip-btn" data-tip="0.25">25%</button>
+            <button class="tip-percentage tip-btn" data-tip="0.50">50%</button>
+            <button class="custom-tip-percentage js-custom-tip-percentage-btn">Custom</button>
+            <input type="number" class="js-custom-tip-percentage-input">
           </div>
         </div>
 
         <div class="no-of-people-selection">
           <label for="number-of-people">Number Of People</label>
+          <p class="people-input-alert js-people-input-alert">Can't be zero</p>
           <img width="7px" class="icon" src="images/icon-person.svg" alt="person-icon">
           <input type="number" name="number-of-customers" id="number-of-people" placeholder="0">
         </div>
@@ -57,12 +67,6 @@
         <button class="js-reset-button">Reset</button>
       </div>
     </div>
-    
-  </div>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Thembelihle Emmanuel Notyhawe</a>.
   </div>
 
   <script src="script.js"></script>

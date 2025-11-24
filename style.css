@@ -17,8 +17,10 @@ input[type=number] {
 }
 
 body {
-    max-height: 900px;
-    font-family: "Space Mono";
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Space Mono", sans-serif;
     background-color: hsl(185, 41%, 84%);
     display: flex;
     justify-content: center;
@@ -26,20 +28,37 @@ body {
     flex-direction: column;
 }
 
+.splitter {
+    color: hsl(183, 100%, 15%);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+}
+
 .card {
     background-color: white;
     margin-top: 8rem;
     padding: 1rem;
     border-radius: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
 }
 
 .calculation {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
+
 .bill-calculation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
 }
 
 label {
@@ -47,7 +66,20 @@ label {
     display: block;
 }
 
-.dollar-icon {
+.bill-alert, 
+.people-input-alert,
+.tip-percentage-alert {
+    right: 0;
+    position: absolute;
+    font-size: 0.7rem;
+    color: red;
+    display: none;
+}
+
+.bill-calculation img {
+    position: absolute;
+    top: 50%;
+    transform: translate(100%, 50%);
 }
 
 input {
@@ -57,6 +89,11 @@ input {
     border-radius: 5px;
     padding: 6px 15px;
     text-align: right;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: 2px hsl(172, 67%, 45%) solid;
 }
 
 .tip-percentage {
@@ -66,6 +103,12 @@ input {
     border: none;
     border-radius: 3px;
     transition: all 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.tip-btn.active {
+    background-color: rgb(134, 229, 216);
+    color: white;
 }
 
 .tip-percentage:hover {
@@ -83,11 +126,15 @@ input {
 }
 
 .custom-tip-percentage:hover {
-    border: 2px solid rgb(38, 192, 171);
+    border: 1px solid rgb(38, 192, 171);
 }
 
 .tip-selection {
+    position: relative;
     font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .tip-selection h4 {
@@ -96,13 +143,26 @@ input {
 
 .percentage-buttons {
     display: grid;
-    grid-template-columns: 60px 60px 60px;
-    grid-template-rows: 30px 30px 30px;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 30px 30px;
     gap: 5px;
 }
 
+.percentage-buttons input {
+    display: none;
+}
+
 .no-of-people-selection {
-    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.no-of-people-selection img {
+    position: absolute;
+    top: 50%;
+    transform: translate(100%, 50%);
 }
 
 .results {
@@ -141,17 +201,33 @@ input {
     width: 100%;
     margin-top: 1.5rem;
     transition: all 0.15s ease-in-out;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .results button:hover {
+    color: white;
     background-color: rgb(38, 192, 171);
 }
 
-.attribution { 
-    font-size: 11px;
-    text-align: center;
-}
+@media (max-width: 640px) {
+    .card {
+        grid-template-columns: 1fr;
+    }
 
-.attribution a { 
-    color: hsl(228, 45%, 44%); 
+    .calculation {
+        width: 100%;
+    }
+
+    .bill-calculation input {
+        width: 100%;
+    }
+
+    .tip-selection {
+        width: 100%;
+    }
+
+    .percentage-buttons {
+        width: 100%;
+    }
 }
